@@ -69,6 +69,7 @@ NexT.utils = NexT.$u = {
       var scrollPercent = (scrollTop) / (docHeight - winHeight);
       var scrollPercentRounded = Math.round(scrollPercent*100);
       $('#scrollpercent>span').html(scrollPercentRounded);
+      // $('.headband').css('width', scrollPercentRounded + '%');
     });
 
     $top.on('click', function () {
