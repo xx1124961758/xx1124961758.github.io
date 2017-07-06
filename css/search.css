@@ -217,3 +217,9 @@ a.search-result {
 .fa-search::before{
     color: #999999;
 }
+
+@media (max-width: 767px) {
+    .popoverlay {
+        display: none !important;
+    }
+}
