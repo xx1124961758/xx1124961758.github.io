@@ -223,3 +223,17 @@ a.search-result {
         display: none !important;
     }
 }
+
+@media (min-width: 767px) {
+    .headband {
+        height: 0;
+    }
+    #header .header-inner .custom-logo .site-title {
+        padding: 10px 0;
+        color: #ef5b25;
+    }
+    #header .site-nav {
+        overflow: hidden;
+        margin-top: 14px;
+    }
+}
