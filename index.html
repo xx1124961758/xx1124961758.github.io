@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -100,7 +100,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Muse',
     sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
@@ -110,8 +110,8 @@
     },
     algolia: {
       applicationID: '',
-      apiKey: '',
-      indexName: '',
+      apiKey: '385f8c6e0590e1c484ed7b1a2997c136',
+      indexName: 'pengfuxiao',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -157,7 +157,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper"  style="display: none">
+      <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta custom-logo">
     
 
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            时光轴
           </a>
         </li>
       
@@ -220,9 +220,46 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+          
+               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              
+              搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+    </div>
   
 </nav>
 
@@ -695,7 +732,7 @@ dsfg asfsa申达股份是发生水电费撒F阿萨德saf asdf水电费撒F阿萨
                alt="彭富晓" />
           <p class="site-author-name" itemprop="name">彭富晓</p>
            
-              <p class="site-description motion-element" itemprop="description" style="font-size: 12px">勤学如春起之苗，不见其增日有所长。<br/>辍学如磨刀之石，不见其损日有所亏。</p>
+              <p class="site-description motion-element" itemprop="description">勤学如春起之苗，不见其增日有所长。<br/>辍学如磨刀之石，不见其损日有所亏。</p>
            
         </div>
         <nav class="site-state motion-element">
@@ -778,13 +815,16 @@ dsfg asfsa申达股份是发生水电费撒F阿萨德saf asdf水电费撒F阿萨
 
 
 <div class="powered-by">
-  由 Hexo 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  主题 - NexT.Pisces
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
 </div>
-
+<link href="/css/search.css" rel="stylesheet" type="text/css" />
 
         
 
@@ -822,8 +862,6 @@ dsfg asfsa申达股份是发生水电费撒F阿萨德saf asdf水电费撒F阿萨
   
 
 
-  
-
 
 
 
@@ -846,9 +884,6 @@ dsfg asfsa申达股份是发生水电费撒F阿萨德saf asdf水电费撒F阿萨
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
 
   
 
@@ -861,13 +896,6 @@ dsfg asfsa申达股份是发生水电费撒F阿萨德saf asdf水电费撒F阿萨
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
 
   
 
@@ -924,6 +952,21 @@ dsfg asfsa申达股份是发生水电费撒F阿萨德saf asdf水电费撒F阿萨
 
 
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/instantsearch.js/1.7.1/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
 
   
 
@@ -947,6 +990,8 @@ dsfg asfsa申达股份是发生水电费撒F阿萨德saf asdf水电费撒F阿萨
   
 
   
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.0"></script>
+
 
 </body>
 </html>
