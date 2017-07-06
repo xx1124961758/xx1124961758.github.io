@@ -96,7 +96,12 @@
 <meta property="og:description" content="点击 这里，去 Github 仓库获取源码这篇教程用到： React Router 2.0.1，Babel 6.7.4  React Router 是 React 官方标准的路由库。摘抄一段： React Router 能够保持 URL 和 UI 状态的同步。 它的 API 很简单，但是有非常强大地特性，例如：代码延迟加载，动态的路由匹配，正确处理地址的过渡。 你应该首先想到的是 URL 的处理">
 <meta property="og:image" content="http://yoursite.com/images/posts/GH8GqFmDl0rTKfxn5xeZuQ.jpeg">
 <meta property="og:image" content="http://yoursite.com/images/posts/A_5Rlof4WbwLCDjwRRND5g.jpeg">
-<meta property="og:updated_time" content="2017-07-05T06:29:14.983Z">
+<meta property="og:image" content="http://yoursite.com/images/posts/YIIIV0smc9WQOAVmy5eosA.jpeg">
+<meta property="og:image" content="http://yoursite.com/images/posts/ztTAy4yd6dZjBlvWsTZPCA.jpeg">
+<meta property="og:image" content="http://yoursite.com/images/posts/HZgDqOpSs-5cOH_k5dH5jw.jpeg">
+<meta property="og:image" content="http://yoursite.com/images/posts/PkEi-B9wXXssxP81vw2GkQ.jpeg">
+<meta property="og:image" content="http://yoursite.com/images/posts/4mktQ1mOZNzQjZcMEItfBA.jpeg">
+<meta property="og:updated_time" content="2017-07-06T08:20:16.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Router 入门指南">
 <meta name="twitter:description" content="点击 这里，去 Github 仓库获取源码这篇教程用到： React Router 2.0.1，Babel 6.7.4  React Router 是 React 官方标准的路由库。摘抄一段： React Router 能够保持 URL 和 UI 状态的同步。 它的 API 很简单，但是有非常强大地特性，例如：代码延迟加载，动态的路由匹配，正确处理地址的过渡。 你应该首先想到的是 URL 的处理">
@@ -458,7 +463,7 @@ import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from &ap
 const App = () =&gt; &lt;h1&gt;Hello World!&lt;/h1&gt;
 export default App
 </code></pre><p>我们还没用 Component 和 任何一个 React / React-router 的组件，但我们把它们引入进来了，因此我可以开始第二步了。</p>
-<p>现在，如果运行了项目，并且访问了 <a href="http://localhost:8100" target="_blank" rel="external">http://localhost:8100</a>。你将在页面上看到 “Hello，world!!!!!”</p>
+<p>现在，如果运行了项目，并且访问了 <code>http://localhost:8100</code>。你将在页面上看到 “Hello，world!!!!!”</p>
 <pre><code>npm start
 </code></pre><p><img src="/images/posts/A_5Rlof4WbwLCDjwRRND5g.jpeg" alt=""></p>
 <h1 id="第二步：-路由基础"><a href="#第二步：-路由基础" class="headerlink" title="第二步： 路由基础"></a>第二步： 路由基础</h1><p>让我们设置一个基础的路由。我们将会用一个会返回 React 组件的 React 类代替 App 组件。Router 将会包裹所有我们我将要定义的路由。</p>
@@ -479,10 +484,229 @@ class App extends Component {
 const Home = () =&gt; &lt;h1&gt;Hello from Home!&lt;/h1&gt;
 const Address = () =&gt; &lt;h1&gt;We are located at 555 Jackson St.&lt;/h1&gt;
 export default App
-</code></pre><p>现在如果你访问 <a href="http://localhost:8100/" target="_blank" rel="external">http://localhost:8100/</a> 你将会看到我们的 Home 组件，如果你访问 <a href="http://localhost:8100/#/address" target="_blank" rel="external">http://localhost:8100/#/address</a>，你将会看到 Address 组件。</p>
+</code></pre><p>现在如果你访问 <code>http://localhost:8100</code> 你将会看到我们的 Home 组件，如果你访问 <code>http://localhost:8100/#/address</code>，你将会看到 Address 组件。</p>
 <blockquote>
-<p>当用 hash history，你将会在地址栏的查询字符串中看到像 _k=123abc 额外的东西。</p>
-<p><a href="https://github.com/mjackson/history/blob/master/docs/HashHistoryCaveats.md" target="_blank" rel="external">更多</a></p>
+<p>当用 hash history，你将会在地址栏的查询字符串中看到像 _k=123abc 额外的东西。<br>这是在页面切换时，history 从 window.sessionStorage 查找匹配的关键。<br><a href="https://github.com/mjackson/history/blob/master/docs/HashHistoryCaveats.md" target="_blank" rel="external">更多</a></p>
+</blockquote>
+<p>如果你想要一个简洁的地址，或者在生产环境中使用，你将会考虑使用 browser 还是 hashHistory。当使用 browserHistory 时，你必须要有一个在任何一个路由上，可以一直返回你的服务的服务器，例如：如果使用 nodejs，下面的配置能够运行：</p>
+<pre><code>const express = require(&apos;express&apos;)
+const path = require(&apos;path&apos;)
+const port = process.env.PORT || 8080
+const app = express()
+
+// serve static assets normally
+app.use(express.static(__dirname + &apos;/public&apos;))
+
+// handle every other route with index.html, which will contain
+// a script tag to your application&apos;s JavaScript file(s).
+app.get(&apos;*&apos;, function (request, response){
+  response.sendFile(path.resolve(__dirname, &apos;public&apos;, &apos;index.html&apos;))
+})
+
+app.listen(port)
+console.log(&quot;server started on port &quot; + port)
+</code></pre><p>想要学习更多关于 browserHistory 的知识，点击 <a href="https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#browserhistory" target="_blank" rel="external">这里</a></p>
+<p>接下来的教程，我们会用 hashHistory</p>
+<h1 id="第三步-404页面路由"><a href="#第三步-404页面路由" class="headerlink" title="第三步 404页面路由"></a>第三步 404页面路由</h1><p>现在假如我们输入一个没有定义的路由将会怎么样？让我们设置一个当没有路由定义时返回的 404 路由和组件：</p>
+<pre><code>const NotFound = () =&gt; (
+    &lt;h1&gt;404.. This page is not found!&lt;/h1&gt;)
+</code></pre><p>现在，在我们的 ‘/address’ 路由下面，创建一个路由：</p>
+<pre><code>&lt;Route path=&apos;*&apos; component={NotFound} /&gt;
+</code></pre><p>现在，如果我们输入一个没有定义的路由 <code>http://localhost:8100/#/asdfasdf</code>，我们将会看到 404 页面。</p>
+<h1 id="第四步-IndexRoute-和-Links"><a href="#第四步-IndexRoute-和-Links" class="headerlink" title="第四步 IndexRoute 和 Links"></a>第四步 IndexRoute 和 Links</h1><p>现在，让我们添加导航以在页面之间跳转。</p>
+<p>做这个功能，我们将会用到 <link> 组件。<link> 组件跟 html 的锚点标签类似。</p>
+<p>官方文档里说：</p>
+<blockquote>
+<p>允许用户在你的应用之间跳转最主要的方式。<br><code>&lt;Link&gt;</code> 将会渲染一个完全可访问的带有正确 href 属性的锚点标签，</p>
+</blockquote>
+<p>让我们创建一个导航组件。我们的导航组件将会包含 <link> 组件，看起来是这样的：</p>
+<pre><code>const Nav = () =&gt; (
+  &lt;div&gt;
+    &lt;Link to=&apos;/&apos;&gt;Home&lt;/Link&gt;&amp;nbsp;
+    &lt;Link to=&apos;/address&apos;&gt;Address&lt;/Link&gt;
+  &lt;/div&gt;
+)
+</code></pre><p>现在需要一种方式来使我们的导航组件可以到达所有的页面。我们将会用一个主要的 <route> 组件来包裹我们的子路由组件。我们也会需要更新我们的 Home 组件，创建一个名叫 Container 的新组件：</route></p>
+<p>container</p>
+<pre><code>const Container = (props) =&gt; &lt;div&gt;
+  &lt;Nav /&gt;
+  {props.children}
+&lt;/div&gt;
+</code></pre><p><code>{props.children}</code> 将会允许任何一个被这个路由包裹的路由在这个组件中被渲染。</p>
+<p>现在，让我们重新编辑我们的 App 组件，我们把 HomePage，Address，和 NotFound 路由包裹进新的 Container 路由里。我们也要设置 HomePage 作为 IndexRoute。这意味着当我们输入 <code>http://localhost:8100</code>，我们的 Home 组件将会被渲染：</p>
+<pre><code>class App extends Component {
+  render () {
+    return (
+      &lt;Router history={hashHistory}&gt;
+        &lt;Route path=&apos;/&apos; component={Container}&gt;
+          &lt;IndexRoute component={Home} /&gt;
+          &lt;Route path=&apos;/address&apos; component={Address} /&gt;
+          &lt;Route path=&apos;*&apos; component={NotFound} /&gt;
+        &lt;/Route&gt;
+      &lt;/Router&gt;
+    )
+  }
+}
+</code></pre><p>完整的 app.js 代码将会是这样的，<a href="https://gist.github.com/dabit3/3d0d47c4a8bfccadfd5d15c58cfb1424" target="_blank" rel="external">code</a> ，以供参考。</p>
+<p>现在当我们输入 <code>http://localhost:8100</code> ，我们将会看到我们的 Home 组件和导航组件被渲染了。</p>
+<h1 id="第五步-多个-child-IndexRoutes"><a href="#第五步-多个-child-IndexRoutes" class="headerlink" title="第五步 多个 child / IndexRoutes"></a>第五步 多个 child / IndexRoutes</h1><p>现在，我们想要在 address 组件中嵌套一个 twitter 流和一个 Instagram 流。让我们创建函数组件。</p>
+<p>首先，重新编辑我们的 address 路由，添加 InstagramFeed 和 TwitterFeed：</p>
+<pre><code>class App extends Component {
+  render () {
+    return (
+      &lt;Router history={hashHistory}&gt;
+        &lt;Route path=&apos;/&apos; component={Container}&gt;
+          &lt;IndexRoute component={Home} /&gt;
+          &lt;Route path=&apos;address&apos; component={Address}&gt;
+            &lt;IndexRoute component={TwitterFeed} /&gt;
+            &lt;Route path=&apos;instagram&apos; component={Instagram} /&gt;
+          &lt;/Route&gt;
+          &lt;Route path=&apos;*&apos; component={NotFound} /&gt;
+        &lt;/Route&gt;
+      &lt;/Router&gt;
+    )
+  }
+}
+</code></pre><p>我们设置了 address 的 IndexRoute 为 TwitterFeed 组件。并且也添加了 Instagram 路由。</p>
+<p>现在，让我们创建这两个组件。它们都非常简单，因为它们仅仅为了验证我们的路由是否正确。</p>
+<pre><code>const Instagram = () =&gt; &lt;h3&gt;Instagram Feed&lt;/h3&gt;
+const TwitterFeed = () =&gt; &lt;h3&gt;Twitter Feed&lt;/h3&gt;
+</code></pre><p>最后，进入 Address 组件，像 <code>props.chidren</code> 那样为组件添加链接：</p>
+<pre><code>const Address = (props) =&gt; &lt;div&gt;
+  &lt;br /&gt;
+  &lt;Link to=&apos;/address&apos;&gt;Twitter Feed&lt;/Link&gt;&amp;nbsp;
+  &lt;Link to=&apos;/address/instagram&apos;&gt;Instagram Feed&lt;/Link&gt;
+  &lt;h1&gt;We are located at 555 Jackson St.&lt;/h1&gt;
+  {props.children}
+&lt;/div&gt;
+</code></pre><p>现在，输入 <code>http://localhost:8100/#/address</code>，address 组件应该和 TwitterFeed 组件被渲染了：</p>
+<p><img src="/images/posts/YIIIV0smc9WQOAVmy5eosA.jpeg" alt=""></p>
+<p><a href="https://gist.github.com/dabit3/0c2014b421f2bf98cd95d176f0b29bad" target="_blank" rel="external">参考代码</a></p>
+<h1 id="第六步-activeStyle-activeClassName-和-indexLink"><a href="#第六步-activeStyle-activeClassName-和-indexLink" class="headerlink" title="第六步 activeStyle / activeClassName 和 indexLink"></a>第六步 activeStyle / activeClassName 和 indexLink</h1><p>我们现在来看一下根据路由是否是激活状态为链接加上样式。有两种解决办法，直接加上样式或者通过 class。</p>
+<p>摘抄官方文档：</p>
+<blockquote>
+<p><code>Link</code> 可以知道它所指向的路由是否是激活状态，当给定一个 prop 属性时，会自动应用一个 activeClassName 和 / 或 activeStyle。<br>如果当前的路由是链接的路由，或者是子代的链接的路由，<code>Link</code> 将会被激活。<br>只能根据确切的路径来使链接激活。<br>使用 <code>&lt;IndexLink&gt;</code> 代替，或者设置 theonlyActiveOnIndex  属性</p>
+</blockquote>
+<p>首先看下 activeStyle。为了应用 activeStyle，你只要为 <code>&lt;link&gt;</code> 简单添加 activeStyle 作为属性。并且把你想要定义的样式传递进去：</p>
+<pre><code>&lt;Link activeStyle={{color:'#53acff'}} to=&apos;&apos;&gt;Home&lt;/Link&gt;
+</code></pre><p>让我们更新我们的导航组件像下面这样：</p>
+<pre><code>const Nav = () =&gt; (
+  &lt;div&gt;
+    &lt;Link activeStyle={{color:'#53acff'}} to=&apos;/&apos;&gt;Home&lt;/Link&gt;&amp;nbsp;
+    &lt;Link activeStyle={{color:'#53acff'}} to=&apos;/address&apos;&gt;Address&lt;/Link&gt;&amp;nbsp;
+    &lt;Link activeStyle={{color:'#53acff'}} to=&apos;/about&apos;&gt;About&lt;/Link&gt;
+  &lt;/div&gt;
+)
+</code></pre><p>让我们看下现在浏览器中我们的应用成什么样子了。你可能会注意到当你点击 address 时，Home 依然是高亮的：</p>
+<p><img src="/images/posts/ztTAy4yd6dZjBlvWsTZPCA.jpeg" alt=""></p>
+<p>这是因为当在 <code>&lt;Link&gt;</code> 上用 activeStyle 时，无论是当前的路由匹配到还是子代的路由匹配到 <code>&lt;Link&gt;</code> 都会被激活。</p>
+<p>因为 Address 是 Home 的后代组件，它依然高亮。为了解决这个，我们可以传递 onlyActiveOnIndex 属性给 <code>&lt;Link&gt;</code> 组件：</p>
+<pre><code>&lt;Link onlyActiveOnIndex activeStyle={{color:'#53acff'}} to=&apos;/&apos;&gt;Home&lt;/Link&gt;
+</code></pre><p>现在再看下浏览器，完全匹配到的时候才会高亮。</p>
+<p><img src="/images/posts/HZgDqOpSs-5cOH_k5dH5jw.jpeg" alt=""></p>
+<p>但是，这儿有一个类似 <code>&lt;Link&gt;</code> 的组件叫做 <code>&lt;IndexLink&gt;</code>。<code>&lt;IndexLink&gt;</code> 仅仅是当前路由跟链接完全匹配到的时候才会被激活。</p>
+<p>摘抄官方文档：</p>
+<blockquote>
+<p><code>&lt;IndexLink&gt;</code> 类似于 <code>&lt;Link&gt;</code>。只有当前路由完全匹配到链接的时候才会被激活。<br>它和设置过 onlyActiveOnIndex 的 <code>&lt;Link&gt;</code> 一样。</p>
+</blockquote>
+<p>为了使用 <code>&lt;IndexLink&gt;</code>，我们首先从 react-router 中引入进来：</p>
+<pre><code>import { ..., IndexLink } from &apos;react-router&apos;
+</code></pre><p>现在，简单地在导航组件中用 <code>&lt;IndexLink&gt;</code> 替换 <code>&lt;Link&gt;</code> 组件：</p>
+<pre><code>const Nav = () =&gt; (
+  &lt;div&gt;
+    &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/&apos;&gt;Home&lt;/IndexLink&gt;&amp;nbsp;
+    &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/address&apos;&gt;Address&lt;/IndexLink&gt;&amp;nbsp;
+    &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/about&apos;&gt;About&lt;/IndexLink&gt;
+  &lt;/div&gt;
+)
+</code></pre><p>现在，添加 class 或者 样式怎么样？为了实现这个功能，我们可以用 activeClassName。让我们在 index.html 设置一个激活状态的样式。</p>
+<pre><code>&lt;style&gt;
+  .active {
+   color:#53acff
+  }
+&lt;/style&gt;
+</code></pre><p>现在，我们在导航组件中用 activeClassName 替换activeStyle。</p>
+<pre><code>const Nav = () =&gt; (
+  &lt;div&gt;
+    &lt;IndexLink activeClassName=&apos;active&apos; to=&apos;/&apos;&gt;Home&lt;/IndexLink&gt;&amp;nbsp;
+    &lt;IndexLink activeClassName=&apos;active&apos; to=&apos;/address&apos;&gt;Address&lt;/IndexLink&gt;&amp;nbsp;
+    &lt;IndexLink activeClassName=&apos;active&apos; to=&apos;/about&apos;&gt;About&lt;/IndexLink&gt;
+  &lt;/div&gt;
+)
+</code></pre><p><a href="https://gist.github.com/dabit3/ae4eeea9906c26e5643145664d540d0d" target="_blank" rel="external">参考代码</a></p>
+<h1 id="第七步-命名组件"><a href="#第七步-命名组件" class="headerlink" title="第七步 命名组件"></a>第七步 命名组件</h1><p>使用命名组件，我们可以将组件作为属性定义到 <code>&lt;Route&gt;</code> 。</p>
+<p>摘抄官方文档：</p>
+<blockquote>
+</blockquote>
+<p>现在，我们看下代码，看一看这个是什么样的？</p>
+<p>首先，让我们创建一个将会在我们的命名的组建中渲染的新的组件。这些组件作为属性传递：</p>
+<pre><code>const NamedComponents = (props) =&gt; (
+  &lt;div&gt;
+    {props.title}&lt;br /&gt;
+    {props.subTitle}
+  &lt;/div&gt;
+)
+</code></pre><p>接下来，我们创建两个新的组件。Title 和 Subtitle：</p>
+<pre><code>const Title = () =&gt; (
+  &lt;h1&gt;Hello from Title Component&lt;/h1&gt;
+)
+const SubTitle = () =&gt; (
+  &lt;h1&gt;Hello from SubTitle Component&lt;/h1&gt;
+)
+</code></pre><p>现在，让我们为 NamedComponents 创建一个新的路由。在 IndexRoute 中定义 Subtitle 和 Title 组件。</p>
+<pre><code>&lt;Route path=&apos;/namedComponent&apos; component={NamedComponents}&gt;
+  &lt;IndexRoute components={{ title: Title, subTitle: SubTitle }} /&gt;
+&lt;/Route&gt;
+</code></pre><p>最后，在导航组件中为这个组件添加一个链接：</p>
+<pre><code>&lt;IndexLink activeClassName=&apos;active&apos; to=&apos;/namedComponent&apos;&gt;Named Components&lt;/IndexLink&gt;
+</code></pre><p>现在当我们点击 Named Components 链接时，我们将看到我们的　Title 和 SubTitle 组件被渲染到页面上了：</p>
+<p><img src="/images/posts/PkEi-B9wXXssxP81vw2GkQ.jpeg" alt=""></p>
+<p><a href="https://gist.github.com/dabit3/5a75ecdba89dc2a45c1aaaf2727ddad1" target="_blank" rel="external">参考代码</a></p>
+<h1 id="第八步-路由参数"><a href="#第八步-路由参数" class="headerlink" title="第八步 路由参数"></a>第八步 路由参数</h1><p>许多应用程序的一个基本部分就是有能力获取到 url 中的路由参数。</p>
+<p>为了实现这个功能，让我们访问我们的 About 组件。首先重新在我们的路由中重新写一个带有可选参数的 path：</p>
+<pre><code>&lt;Route path=&apos;/about/:name&apos; component={About} /&gt;
+</code></pre><p>现在让我们重新编辑 About 组件用上 name 变量：</p>
+<pre><code>const About = (props) =&gt; (
+  &lt;div&gt;
+    &lt;h3&gt;Welcome to the About Page&lt;/h3&gt;
+    &lt;h2&gt;{props.params.name}&lt;/h2&gt;
+  &lt;/div&gt;
+)
+</code></pre><p>现在，如果我们访问 <code>http://localhost:8100/#/about/nader</code>，我们将会看到在 nader 下面有一段话 welcome to about About page。</p>
+<p>有一个问题，就是当我们访问 <code>http://localhost:8100/#/about</code> 时，我们得到一个 404 页面，因为这儿没有 name 参数。为了解决这个问题，我们可以让参数可选通过在外面加个括号：</p>
+<pre><code>&lt;Route path=&apos;/about(/:name)&apos; component={About} /&gt;
+</code></pre><p>现在访问 <code>http://localhost:8100/#/about</code> 不会是 404 页面了，并且如果有 name 属性仍然可以访问到。</p>
+<p>进一步，我们可以通过判断 props.name 可得到的情况下，显示一些其他的内容：</p>
+<pre><code>{ props.params.name &amp;&amp; &lt;h2&gt;Hello, {props.params.name}&lt;/h2&gt;}
+</code></pre><p>现在只有参数可得到时，才能显示。</p>
+<p><a href="https://gist.github.com/dabit3/a31358742f837cf4826d55828931543f" target="_blank" rel="external">参考代码</a></p>
+<h1 id="第九步-查询参数"><a href="#第九步-查询参数" class="headerlink" title="第九步 查询参数"></a>第九步 查询参数</h1><p>你可以给任何一个在特定路径渲染的组件传递查询字符串，可以通过 <code>props.location.query</code> 访问这些参数。</p>
+<p>看看它是怎么工作的，让我们创建一个叫做 Query 的组件，渲染一个叫做 <code>props.location.query.message</code> 的属性：</p>
+<pre><code>const Query = (props) =&gt; (
+  &lt;h2&gt;{props.location.query.message}&lt;/h2&gt;
+)
+</code></pre><p>现在让我们在已经创建过的 address 路由中设置新的 Query 路由。</p>
+<pre><code>...
+&lt;Route path=&apos;/address&apos; component={Address}&gt;
+  &lt;IndexRoute component={TwitterFeed} /&gt;
+  &lt;Route path=&apos;instagram&apos; component={Instagram} /&gt;
+  &lt;Route path=&apos;query&apos; component={Query} /&gt;
+&lt;/Route&gt;
+...
+</code></pre><p>最后创建一个指向改组件的 Link 组件。传递一个带有值的 message 的查询参数。这些操作都在我们之前用过的 to 里面。</p>
+<p>这次不再传递给 to 一个字符串了。我们传递一个带有 pathname 和 query 属性的对象。</p>
+<pre><code>&lt;IndexLink 
+  activeClassName=&apos;active&apos; 
+  to={{ 
+        pathname: '/address/query', 
+        query: { message: 'Hello from Route Query' } 
+      }}&gt;Route Query&lt;/IndexLink&gt;
+</code></pre><p>现在如果我们点击 Route Query 链接，我们将在页面上看到传递的 message：</p>
+<p><img src="/images/posts/4mktQ1mOZNzQjZcMEItfBA.jpeg" alt=""></p>
+<p><a href="https://gist.github.com/dabit3/651f2dae058ff99810eb771c2817d622" target="_blank" rel="external">参考代码</a></p>
+<p>上面的内容基本涵盖了 React-router 的基本用法。</p>
+<blockquote>
+<p>我的名字： <a href="https://twitter.com/dabit3" target="_blank" rel="external">Nader Dabit</a><br>我目前所在的公司是：<a href="https://www.schoolstatus.com/" target="_blank" rel="external">School Status</a>，是一个通过给帮助教育工作者提供数据帮助他们制定更好的决策。<br>如果你喜欢 React 和 React Native，订阅我们在 <a href="http://devchat.tv/" target="_blank" rel="external">Devchat.tv</a> 的 <a href="https://devchat.tv/react-native-radio" target="_blank" rel="external">React Native</a>； </p>
 </blockquote>
 
       
@@ -672,7 +896,7 @@ export default App
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步：开始"><span class="nav-number">1.</span> <span class="nav-text">第一步：开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动设置"><span class="nav-number">1.1.</span> <span class="nav-text">手动设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二步：-路由基础"><span class="nav-number">2.</span> <span class="nav-text">第二步： 路由基础</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步：开始"><span class="nav-number">1.</span> <span class="nav-text">第一步：开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动设置"><span class="nav-number">1.1.</span> <span class="nav-text">手动设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二步：-路由基础"><span class="nav-number">2.</span> <span class="nav-text">第二步： 路由基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三步-404页面路由"><span class="nav-number">3.</span> <span class="nav-text">第三步 404页面路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四步-IndexRoute-和-Links"><span class="nav-number">4.</span> <span class="nav-text">第四步 IndexRoute 和 Links</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五步-多个-child-IndexRoutes"><span class="nav-number">5.</span> <span class="nav-text">第五步 多个 child / IndexRoutes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六步-activeStyle-activeClassName-和-indexLink"><span class="nav-number">6.</span> <span class="nav-text">第六步 activeStyle / activeClassName 和 indexLink</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七步-命名组件"><span class="nav-number">7.</span> <span class="nav-text">第七步 命名组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八步-路由参数"><span class="nav-number">8.</span> <span class="nav-text">第八步 路由参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九步-查询参数"><span class="nav-number">9.</span> <span class="nav-text">第九步 查询参数</span></a></li></ol></div>
             
 
           </div>
