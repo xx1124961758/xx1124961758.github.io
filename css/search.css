@@ -232,6 +232,10 @@ a.search-result {
         padding: 10px 0;
         color: #ef5b25;
     }
+    #main pre,
+    #main .highlight {
+        padding: 10px 20px;
+    }
     #header .site-nav {
         overflow: hidden;
         margin-top: 14px;
