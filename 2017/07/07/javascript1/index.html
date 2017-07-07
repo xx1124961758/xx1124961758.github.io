@@ -89,17 +89,19 @@
 
 
 
-<meta name="description" content="个人博客，程序员的博客，前端开发">
+<meta name="description" content="每一个开发者都在努力写出具有可维护性，可读性，可复用的代码。随着应用规模的变大，代码的结构化变得更加重要。设计模式 （ 在一种在特定场景下，为普遍的问题提供一个组织结构 ） 是解决这一挑战的关键。 JavaScript web 开发者在创建应用的时候，经常会用到设计模式 （ 即使他们没有意识到 ）。 虽然在某些情况下使用到的设计模式很多样化，但是 JavaScript 开发者通常比其他人更倾向使用">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你应该知道的JavaScript的 4 种设计模式！">
 <meta property="og:url" content="https://xx1124961758.github.io/2017/07/07/javascript1/index.html">
 <meta property="og:site_name" content="Geeker田园">
-<meta property="og:description" content="个人博客，程序员的博客，前端开发">
-<meta property="og:updated_time" content="2017-07-07T04:54:35.797Z">
+<meta property="og:description" content="每一个开发者都在努力写出具有可维护性，可读性，可复用的代码。随着应用规模的变大，代码的结构化变得更加重要。设计模式 （ 在一种在特定场景下，为普遍的问题提供一个组织结构 ） 是解决这一挑战的关键。 JavaScript web 开发者在创建应用的时候，经常会用到设计模式 （ 即使他们没有意识到 ）。 虽然在某些情况下使用到的设计模式很多样化，但是 JavaScript 开发者通常比其他人更倾向使用">
+<meta property="og:image" content="https://xx1124961758.github.io/images/posts/Prototype_UML.svg">
+<meta property="og:updated_time" content="2017-07-07T08:21:53.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你应该知道的JavaScript的 4 种设计模式！">
-<meta name="twitter:description" content="个人博客，程序员的博客，前端开发">
+<meta name="twitter:description" content="每一个开发者都在努力写出具有可维护性，可读性，可复用的代码。随着应用规模的变大，代码的结构化变得更加重要。设计模式 （ 在一种在特定场景下，为普遍的问题提供一个组织结构 ） 是解决这一挑战的关键。 JavaScript web 开发者在创建应用的时候，经常会用到设计模式 （ 即使他们没有意识到 ）。 虽然在某些情况下使用到的设计模式很多样化，但是 JavaScript 开发者通常比其他人更倾向使用">
+<meta name="twitter:image" content="https://xx1124961758.github.io/images/posts/Prototype_UML.svg">
 
 
 
@@ -414,7 +416,47 @@
       
 
       
-        
+        <p>每一个开发者都在努力写出具有可维护性，可读性，可复用的代码。随着应用规模的变大，代码的结构化变得更加重要。设计模式 （ 在一种在特定场景下，为普遍的问题提供一个组织结构 ） 是解决这一挑战的关键。</p>
+<p>JavaScript web 开发者在创建应用的时候，经常会用到设计模式 （ 即使他们没有意识到 ）。</p>
+<p>虽然在某些情况下使用到的设计模式很多样化，但是 JavaScript 开发者通常比其他人更倾向使用一些设计模式。</p>
+<p>在这篇文章中，我想讨论下一些普遍的设计模式，以提高你们的编程能力和深入 JavaScript 内部。</p>
+<p>将要讨论的设计模式有：</p>
+<ul>
+<li>模块（Module）</li>
+<li>原型（Prototype）</li>
+<li>观察者（Observer）</li>
+<li>单例（Singleton）</li>
+</ul>
+<p>每一种设计模式都包含很多属性，不过，我会着重强调下面几个关键点：</p>
+<ol>
+<li>上下文（Context）: 在什么情况下使用或者在哪里使用？</li>
+<li>问题（Problem）: 我们会尝试解决什么问题？</li>
+<li>解决方法（Solution）: 用这个设计模式解决我们提出的问题怎么样？</li>
+<li>实现（Implementation）: 实现起来是什么样的？</li>
+</ol>
+<h1 id="”模块“设计模式"><a href="#”模块“设计模式" class="headerlink" title="”模块“设计模式"></a>”模块“设计模式</h1><p>JavaScript 模块是普遍用来保持特定的代码片段独立于其他组件的设计模式。这提供了松散耦合，结构良好的代码。</p>
+<p>对于那些熟悉面向对象编程语言的开发者，模块是 JavaScript 的 “class”。类的优点之一就是 “封装” - 能够保护那些被其他类访问的属性和方法。模块设计模式运行定义 “公共的” 或者 “私有的” 不同的级别。</p>
+<p>模块应该是一个允许拥有私有作用域的立即执行函数，也就是说，闭包会保护变量和方法（然而它会返回一个对象，而不是一个函数）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// declare private variables and/or functions</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">    <span class="comment">//    declare public variables and/or functions</span></div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>这里在返回对象之前实例化了私有的变量和 / 或方法。闭包外面的代码是不能访问内部私有变量的，因为它们不在同一个作用域下（子作用域能够通过作用域链访问父作用域内的变量，反过来不可以）。让我们关注一下实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> HTMLChanger = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> contents = <span class="string">'contents'</span>;</div><div class="line">    <span class="keyword">var</span> changeHTML = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> element = focument.getElementById(<span class="string">'attribute-to-change'</span>);</div><div class="line">        element.innerHTML = contents;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">callChangeHTML</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                changeHTML();</div><div class="line">                <span class="built_in">console</span>.log(contents);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">HTMLChanger.callChangeHTML();       <span class="comment">// Outputs: 'contents'</span></div><div class="line"><span class="built_in">console</span>.log(HTMLChanger.contents);  <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<p>注意下 <code>callChangeHTML</code>，它被绑定到返回的对象上了，并且可以通过 <code>HTMLChanger</code> 命名空间调用。然而，在模块的外部，是不能访问 <code>contents</code> 变量的。</p>
+<h2 id="揭示模块模式"><a href="#揭示模块模式" class="headerlink" title="揭示模块模式"></a>揭示模块模式</h2><p>模块模式的一种变体叫做 揭示模块模式。目的是维护封装性，在对象字面量的形式中传递一些特定的变量和方法。最直接的实现像下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Expose = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span>;</div><div class="line">    <span class="keyword">var</span> privateMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'inside a private method!'</span>);</div><div class="line">        privateVar++;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> methodToExpose = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'this is a method i want to expose'</span>);</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> otherMethodIWantToExpose = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        privateMethod();</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">first</span>: methodToExpose,</div><div class="line">        <span class="attr">second</span>: otherMethodIWantToExpose</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">Exposer.first();        <span class="comment">// Output: This is a method I want to expose!</span></div><div class="line">Exposer.second();       <span class="comment">// Output: Inside a private method!</span></div><div class="line">Exposer.methodToExpose; <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<p>尽管这样看起来更加清晰，但有一个明显的缺点就是不能够引用私有的方法。这个可能对单元测试产生挑战。同样，公共方法不能被覆盖。</p>
+<h1 id="原型设计模式"><a href="#原型设计模式" class="headerlink" title="原型设计模式"></a>原型设计模式</h1><p>任何一个 JavaScript 开发者看到过这个 <code>prototype</code> 关键字。被原型继承或者在他们的代码中实现继承所困扰过。原型设计模式依赖于 JavaScript 的原型继承。原型模式大多数被用来高性能地创建对象。</p>
+<p>被源对象浅复制创建的对象到处传递。原型模式的一个使用场景就是执行一个广泛的数据库操作，创建一个对象以供应用的其他部分所使用的。如果另一个进程需要使用这个对象，可以使用之前创建的对象，而不是重复大量数据库的操作。</p>
+<p><img src="/images/posts/Prototype_UML.svg" alt=""></p>
+<p>该建模语言（UML）描述了被用来复制的原型接口的具体实现。</p>
+<p>为了复制一个对象，构造函数必须先实例化第一个对象。接下来，通过关键字 <code>prototype</code> 变量和方法绑定到对象的结构。让我看下基本例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> TeslaModeJs = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.numWheels = <span class="number">4</span>;</div><div class="line">    <span class="keyword">this</span>.manufacturer = <span class="string">'Tesla'</span>;</div><div class="line">    <span class="keyword">this</span>.make = <span class="string">'Model S'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">TeslaModeJs.prototype.go = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="comment">//Rotate Wheels    </span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">TeslaModeJs.prototype.stop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="comment">//apply brake pads    </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造函数允许单一 TeslaModelS 对象的创建。当创建一个新的 TeslaModelS 对象，它将保留在构造函数中初始化的状态（属性 和 方法）。此外，维护 <code>go</code> 函数和 <code>stop</code> 函数会很容易，因为我们通过是 <code>prototype</code> 声明的。下面是一种在原型上来扩展函数的实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> TeslaModelS = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.numWheels    = <span class="number">4</span>;</div><div class="line">  <span class="keyword">this</span>.manufacturer = <span class="string">'Tesla'</span>;</div><div class="line">  <span class="keyword">this</span>.make         = <span class="string">'Model S'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">TeslaModelS.prototype = &#123;</div><div class="line">  <span class="attr">go</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Rotate wheels</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">stop</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Apply brake pads</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="揭示原型模式"><a href="#揭示原型模式" class="headerlink" title="揭示原型模式"></a>揭示原型模式</h2><p>和模块模式类似，原型模式也有一个变异体。变异的原型模式在返回的字面量对象中提供了公共和私有成员的封装。</p>
+<p>因为我们返回的是一个对象，我们用一个函数声明来预处理下原型对象。我们可以有选择地暴露在原型对象中的成员，控制它们访问级别：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> TeslaModelS =<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.numWheels = <span class="number">4</span>;</div><div class="line">    <span class="keyword">this</span>.manufacturer = <span class="string">'Tesla'</span>;</div><div class="line">    <span class="keyword">this</span>.make = <span class="string">'Model S'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">TeslaModelS.prototype = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> go = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//    Rotate wheels</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> stop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//    apply brake pads</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">pressBrakePedal</span>: stop,</div><div class="line">        <span class="attr">pressGasPedal</span>: go</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>现在因为 <code>go</code> 和 <code>stop</code> 函数在返回对象的作用域之外，所以和返回的对象隔离开来了。因为 JavaScript 原生支持原型继承，所以没有必要重新实现一遍底层功能了。</p>
+<h1 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h1>
       
     </div>
 
@@ -518,8 +560,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -592,6 +643,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#”模块“设计模式"><span class="nav-number">1.</span> <span class="nav-text">”模块“设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#揭示模块模式"><span class="nav-number">1.1.</span> <span class="nav-text">揭示模块模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型设计模式"><span class="nav-number">2.</span> <span class="nav-text">原型设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#揭示原型模式"><span class="nav-number">2.1.</span> <span class="nav-text">揭示原型模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#观察者模式"><span class="nav-number">3.</span> <span class="nav-text">观察者模式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
