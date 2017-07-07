@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xx1124961758.github.io/2017/07/07/javascript1/</loc>
+    <loc>https://xx1124961758.github.io/about/index.html</loc>
     
-    <lastmod>2017-07-07T03:48:24.971Z</lastmod>
+    <lastmod>2017-07-07T05:08:41.620Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xx1124961758.github.io/categories/index.html</loc>
+    
+    <lastmod>2017-07-07T05:08:24.356Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xx1124961758.github.io/tags/index.html</loc>
+    
+    <lastmod>2017-07-07T05:08:24.345Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://xx1124961758.github.io/2017/07/05/react-router-guide/</loc>
     
-    <lastmod>2017-07-07T02:32:20.153Z</lastmod>
+    <lastmod>2017-07-07T04:56:06.320Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xx1124961758.github.io/2017/07/04/hello-world/</loc>
+    
+    <lastmod>2017-07-07T04:54:59.145Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xx1124961758.github.io/2017/07/07/javascript1/</loc>
+    
+    <lastmod>2017-07-07T04:54:35.797Z</lastmod>
     
   </url>
   
@@ -26,27 +54,6 @@
     <loc>https://xx1124961758.github.io/baidu_verify_9i0Z1n2tQP.html</loc>
     
     <lastmod>2017-07-07T01:25:18.077Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xx1124961758.github.io/2017/07/04/hello-world/</loc>
-    
-    <lastmod>2017-07-06T08:32:49.783Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xx1124961758.github.io/about/index.html</loc>
-    
-    <lastmod>2017-07-06T03:47:02.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xx1124961758.github.io/categories/index.html</loc>
-    
-    <lastmod>2017-07-05T07:42:09.076Z</lastmod>
     
   </url>
   

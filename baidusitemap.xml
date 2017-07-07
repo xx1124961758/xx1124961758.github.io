@@ -3,26 +3,12 @@
 
 
     
-  <url>
-    <loc>https://xx1124961758.github.io/2017/07/07/javascript1/</loc>
-    <lastmod>2017-07-07T03:48:24.971Z</lastmod>
-    <data>
-        <display>
-        <title>你应该知道的 4 种设计模式！</title>
-        <pubTime>2017-07-07T03:46:02.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
+    
+    
     
   <url>
     <loc>https://xx1124961758.github.io/2017/07/05/react-router-guide/</loc>
-    <lastmod>2017-07-07T02:32:20.153Z</lastmod>
+    <lastmod>2017-07-07T04:56:06.320Z</lastmod>
     <data>
         <display>
         <title>React Router 入门指南</title>
@@ -32,16 +18,17 @@
          
          
            
+             
+              <breadCrumb title="React" url="https://xx1124961758.github.io/categories/React/"/>
+          
         </display>
     </data>
     </url>
 
     
-    
-    
   <url>
     <loc>https://xx1124961758.github.io/2017/07/04/hello-world/</loc>
-    <lastmod>2017-07-06T08:32:49.783Z</lastmod>
+    <lastmod>2017-07-07T04:54:59.145Z</lastmod>
     <data>
         <display>
         <title>Hexo help</title>
@@ -49,6 +36,29 @@
         
          
            
+             
+              <breadCrumb title="JavaScript" url="https://xx1124961758.github.io/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://xx1124961758.github.io/2017/07/07/javascript1/</loc>
+    <lastmod>2017-07-07T04:54:35.797Z</lastmod>
+    <data>
+        <display>
+        <title>你应该知道的JavaScript的 4 种设计模式！</title>
+        <pubTime>2017-07-07T03:46:02.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="https://xx1124961758.github.io/categories/JavaScript/"/>
+          
         </display>
     </data>
     </url>
