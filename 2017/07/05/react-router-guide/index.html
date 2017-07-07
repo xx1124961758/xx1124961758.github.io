@@ -103,7 +103,7 @@
 <meta property="og:image" content="https://xx1124961758.github.io/images/posts/HZgDqOpSs-5cOH_k5dH5jw.jpeg">
 <meta property="og:image" content="https://xx1124961758.github.io/images/posts/PkEi-B9wXXssxP81vw2GkQ.jpeg">
 <meta property="og:image" content="https://xx1124961758.github.io/images/posts/4mktQ1mOZNzQjZcMEItfBA.jpeg">
-<meta property="og:updated_time" content="2017-07-07T01:48:10.898Z">
+<meta property="og:updated_time" content="2017-07-07T02:32:20.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Router 入门指南">
 <meta name="twitter:description" content="点击 这里，去 Github 仓库获取源码这篇教程用到： React Router 2.0.1，Babel 6.7.4  React Router 是 React 官方标准的路由库。摘抄一段： React Router 能够保持 URL 和 UI 状态的同步。 它的 API 很简单，但是有非常强大地特性，例如：代码延迟加载，动态的路由匹配，正确处理地址的过渡。 你应该首先想到的是 URL 的处理">
@@ -684,18 +684,10 @@ const SubTitle = () =&gt; (
 <p><a href="https://gist.github.com/dabit3/a31358742f837cf4826d55828931543f" target="_blank" rel="external">参考代码</a></p>
 <h1 id="第九步-查询参数"><a href="#第九步-查询参数" class="headerlink" title="第九步 查询参数"></a>第九步 查询参数</h1><p>你可以给任何一个在特定路径渲染的组件传递查询字符串，可以通过 <code>props.location.query</code> 访问这些参数。</p>
 <p>看看它是怎么工作的，让我们创建一个叫做 Query 的组件，渲染一个叫做 <code>props.location.query.message</code> 的属性：</p>
-<pre><code>const Query = (props) =&gt; (
-  &lt;h2&gt;{props.location.query.message}&lt;/h2&gt;
-)
-</code></pre><p>现在让我们在已经创建过的 address 路由中设置新的 Query 路由。</p>
-<pre><code>...
-&lt;Route path=&apos;/address&apos; component={Address}&gt;
-  &lt;IndexRoute component={TwitterFeed} /&gt;
-  &lt;Route path=&apos;instagram&apos; component={Instagram} /&gt;
-  &lt;Route path=&apos;query&apos; component={Query} /&gt;
-&lt;/Route&gt;
-...
-</code></pre><p>最后创建一个指向改组件的 Link 组件。传递一个带有值的 message 的查询参数。这些操作都在我们之前用过的 to 里面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Query = <span class="function">(<span class="params">props</span>) =&gt;</span> (</div><div class="line">  &lt;h2&gt;&#123;props.location.query.message&#125;&lt;/h2&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>现在让我们在已经创建过的 address 路由中设置新的 Query 路由。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">&lt;Route path=&apos;/address&apos; component=&#123;Address&#125;&gt;</div><div class="line">  &lt;IndexRoute component=&#123;TwitterFeed&#125; /&gt;</div><div class="line">  &lt;Route path=&apos;instagram&apos; component=&#123;Instagram&#125; /&gt;</div><div class="line">  &lt;Route path=&apos;query&apos; component=&#123;Query&#125; /&gt;</div><div class="line">&lt;/Route&gt;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>最后创建一个指向改组件的 Link 组件。传递一个带有值的 message 的查询参数。这些操作都在我们之前用过的 to 里面。</p>
 <p>这次不再传递给 to 一个字符串了。我们传递一个带有 pathname 和 query 属性的对象。</p>
 <pre><code>&lt;IndexLink 
   activeClassName=&apos;active&apos; 
@@ -761,6 +753,10 @@ const SubTitle = () =&gt; (
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/07/javascript1/" rel="prev" title="你应该知道的 4 种设计模式！">
+                你应该知道的 4 种设计模式！ <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -839,7 +835,7 @@ const SubTitle = () =&gt; (
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -852,7 +848,7 @@ const SubTitle = () =&gt; (
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
