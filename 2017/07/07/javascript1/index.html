@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="JavaScript,设计模式," />
 
 
 
@@ -90,7 +90,7 @@
 
 
 <meta name="description" content="每一个开发者都在努力写出具有可维护性，可读性，可复用的代码。随着应用规模的变大，代码的结构化变得更加重要。设计模式 （ 在一种在特定场景下，为普遍的问题提供一个组织结构 ） 是解决这一挑战的关键。 JavaScript web 开发者在创建应用的时候，经常会用到设计模式 （ 即使他们没有意识到 ）。 虽然在某些情况下使用到的设计模式很多样化，但是 JavaScript 开发者通常比其他人更倾向使用">
-<meta name="keywords" content="JavaScript">
+<meta name="keywords" content="JavaScript,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你应该知道的JavaScript的 4 种设计模式！">
 <meta property="og:url" content="https://xx1124961758.github.io/2017/07/07/javascript1/index.html">
@@ -98,7 +98,7 @@
 <meta property="og:description" content="每一个开发者都在努力写出具有可维护性，可读性，可复用的代码。随着应用规模的变大，代码的结构化变得更加重要。设计模式 （ 在一种在特定场景下，为普遍的问题提供一个组织结构 ） 是解决这一挑战的关键。 JavaScript web 开发者在创建应用的时候，经常会用到设计模式 （ 即使他们没有意识到 ）。 虽然在某些情况下使用到的设计模式很多样化，但是 JavaScript 开发者通常比其他人更倾向使用">
 <meta property="og:image" content="https://xx1124961758.github.io/images/posts/Prototype_UML.svg">
 <meta property="og:image" content="https://xx1124961758.github.io/images/posts/1000px-Observer.svg.png">
-<meta property="og:updated_time" content="2017-07-10T06:09:00.797Z">
+<meta property="og:updated_time" content="2017-07-10T06:19:09.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你应该知道的JavaScript的 4 种设计模式！">
 <meta name="twitter:description" content="每一个开发者都在努力写出具有可维护性，可读性，可复用的代码。随着应用规模的变大，代码的结构化变得更加重要。设计模式 （ 在一种在特定场景下，为普遍的问题提供一个组织结构 ） 是解决这一挑战的关键。 JavaScript web 开发者在创建应用的时候，经常会用到设计模式 （ 即使他们没有意识到 ）。 虽然在某些情况下使用到的设计模式很多样化，但是 JavaScript 开发者通常比其他人更倾向使用">
@@ -110,7 +110,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
@@ -442,7 +442,7 @@
 <p>这里在返回对象之前实例化了私有的变量和 / 或方法。闭包外面的代码是不能访问内部私有变量的，因为它们不在同一个作用域下（子作用域能够通过作用域链访问父作用域内的变量，反过来不可以）。让我们关注一下实现：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> HTMLChanger = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> contents = <span class="string">'contents'</span>;</div><div class="line">    <span class="keyword">var</span> changeHTML = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> element = focument.getElementById(<span class="string">'attribute-to-change'</span>);</div><div class="line">        element.innerHTML = contents;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">callChangeHTML</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                changeHTML();</div><div class="line">                <span class="built_in">console</span>.log(contents);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">HTMLChanger.callChangeHTML();       <span class="comment">// Outputs: 'contents'</span></div><div class="line"><span class="built_in">console</span>.log(HTMLChanger.contents);  <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
 <p>注意下 <code>callChangeHTML</code>，它被绑定到返回的对象上了，并且可以通过 <code>HTMLChanger</code> 命名空间调用。然而，在模块的外部，是不能访问 <code>contents</code> 变量的。</p>
-<h2 id="揭示模块模式"><a href="#揭示模块模式" class="headerlink" title="揭示模块模式"></a>揭示模块模式</h2><p>模块模式的一种变体叫做 揭示模块模式。目的是维护封装性，在对象字面量的形式中传递一些特定的变量和方法。最直接的实现像下面这样：</p>
+<h2 id="模块模式变体"><a href="#模块模式变体" class="headerlink" title="模块模式变体"></a>模块模式变体</h2><p>模块模式的一种变体叫做 模块模式变体。目的是维护封装性，在对象字面量的形式中传递一些特定的变量和方法。最直接的实现像下面这样：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Expose = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span>;</div><div class="line">    <span class="keyword">var</span> privateMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'inside a private method!'</span>);</div><div class="line">        privateVar++;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> methodToExpose = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'this is a method i want to expose'</span>);</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> otherMethodIWantToExpose = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        privateMethod();</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">first</span>: methodToExpose,</div><div class="line">        <span class="attr">second</span>: otherMethodIWantToExpose</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">Exposer.first();        <span class="comment">// Output: This is a method I want to expose!</span></div><div class="line">Exposer.second();       <span class="comment">// Output: Inside a private method!</span></div><div class="line">Exposer.methodToExpose; <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
 <p>尽管这样看起来更加清晰，但有一个明显的缺点就是不能够引用私有的方法。这个可能对单元测试产生挑战。同样，公共方法不能被覆盖。</p>
 <h1 id="原型设计模式"><a href="#原型设计模式" class="headerlink" title="原型设计模式"></a>原型设计模式</h1><p>任何一个 JavaScript 开发者看到过这个 <code>prototype</code> 关键字。被原型继承或者在他们的代码中实现继承所困扰过。原型设计模式依赖于 JavaScript 的原型继承。原型模式大多数被用来高性能地创建对象。</p>
@@ -507,6 +507,8 @@
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
         </div>
       
 
@@ -527,6 +529,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/10/javascript2/" rel="prev" title="JavaScript 中的执行上下文（栈）是什么？">
+                JavaScript 中的执行上下文（栈）是什么？ <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -605,7 +611,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -627,7 +633,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -673,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#”模块“设计模式"><span class="nav-number">1.</span> <span class="nav-text">”模块“设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#揭示模块模式"><span class="nav-number">1.1.</span> <span class="nav-text">揭示模块模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型设计模式"><span class="nav-number">2.</span> <span class="nav-text">原型设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#揭示原型模式"><span class="nav-number">2.1.</span> <span class="nav-text">揭示原型模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#观察者模式"><span class="nav-number">3.</span> <span class="nav-text">观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">4.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#”模块“设计模式"><span class="nav-number">1.</span> <span class="nav-text">”模块“设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块模式变体"><span class="nav-number">1.1.</span> <span class="nav-text">模块模式变体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型设计模式"><span class="nav-number">2.</span> <span class="nav-text">原型设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#揭示原型模式"><span class="nav-number">2.1.</span> <span class="nav-text">揭示原型模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#观察者模式"><span class="nav-number">3.</span> <span class="nav-text">观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">4.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
@@ -711,7 +717,7 @@
 <div class="theme-info">
   主题 -
   <span class="theme-link">
-    NexT.Mist
+    NexT.Muse
   </span>
 </div>
 <link href="/css/search.css" rel="stylesheet" type="text/css" />

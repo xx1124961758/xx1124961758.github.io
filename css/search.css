@@ -225,33 +225,18 @@ a.search-result {
 }
 
 @media (min-width: 767px) {
-    #header .header-inner .custom-logo .site-title {
-        padding: 10px 0;
-        color: #75aa70;
-    }
     #main pre,
     #main .highlight {
         padding: 10px 20px;
     }
     #header .site-nav {
         overflow: hidden;
-        margin-top: 14px;
     }
     .menu .menu-item a {
         font-size: 16px;
     }
     .menu .menu-item .fa {
         font-size: 16px;
-    }
-    #header.header {
-        padding-top: 370px;
-        margin-top: -410px;
-        background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
-    }
-    .container .headband {
-        display: block;
-        height: 300px;
-        background: url(/images/694830ebgy1fh3pyd05klj21kw0f2dy2.jpg);
     }
     .posts-expand .post-body img {
         width: 100%;
