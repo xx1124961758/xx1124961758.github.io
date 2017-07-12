@@ -225,6 +225,22 @@ a.search-result {
 }
 
 @media (min-width: 767px) {
+    #header {
+        position: fixed;
+        width: 100%;
+        background: white;
+        top: 0;
+        z-index: 1020;
+    }
+    #main {
+        padding-top: 100px;
+    }
+    #header .popup {
+        top: 120px;
+    }
+    .popoverlay {
+        z-index: 1010 !important;
+    }
     #main pre,
     #main .highlight {
         padding: 10px 20px;
