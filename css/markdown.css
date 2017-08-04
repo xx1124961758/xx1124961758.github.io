@@ -1,0 +1,125 @@
+.article {
+  padding: 15px;
+  background: #fff;
+  color: #424242;
+}
+.article .article_tt {
+  font-size: 26px;
+  color: #4e4e4e;
+  margin: 60px 0 40px 0;
+}
+.article figure {
+  margin-bottom: 10px;
+}
+.article figure table {
+  width: 100%;
+  table-layout: fixed;
+}
+.article figure .code {
+  background: #eff3f5;
+  padding: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.article figure .code pre {
+  margin-bottom: 0;
+}
+.article figure .code .line {
+  line-height: 20px;
+}
+.article figure .code .line .comment {
+  color: #999;
+}
+.article figure .code .line .keyword {
+  color: #008;
+}
+.article figure .code .line span {
+  white-space: normal;
+}
+.article figure .gutter {
+  background: #eef0f1;
+  width: 28px;
+}
+.article figure .gutter pre {
+  background: #eef0f1;
+  margin-bottom: 0;
+}
+.article figure .gutter pre .line {
+  color: #999;
+  white-space: normal;
+  line-height: 20px;
+}
+.article blockquote {
+  border-color: #d6dbdf;
+  background: none repeat scroll 0 0 rgba(102,128,153,0.05);
+  padding: 10px 15px;
+  border-left-style: solid;
+  border-left-width: 10px;
+  margin-bottom: 10px;
+}
+.article blockquote p {
+  margin: 0;
+}
+.article blockquote p code {
+  border: 0;
+  background-color: #d6dbdf;
+  border-radius: 4px;
+  color: #2c3e50;
+  font-size: 90%;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+.article p {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  line-height: 24px;
+}
+.article .article_tt {
+  text-align: center;
+}
+.article img {
+  margin: 30px auto;
+  display: block;
+  max-width: 100%;
+}
+.article pre {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+.article code {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+.article h1 {
+  font-size: 20px;
+  padding-left: 10px;
+  border-left: 4px solid defaultTheme;
+  margin: 30px 0 20px 0;
+}
+.article a {
+  color: defaultTheme;
+}
+.article h2 {
+  font-size: 18px;
+  margin: 25px 0 15px 0;
+}
+.article ul {
+  padding-left: 40px;
+  margin-bottom: 10px;
+}
+.article ul li {
+  list-style-type: disc;
+  line-height: 1.6;
+}
+.article ol {
+  padding-left: 40px;
+  margin-bottom: 10px;
+}
+.article ol.toc li {
+  list-style-type: none;
+}
+.article ol li {
+  list-style-type: decimal;
+  line-height: 1.6;
+}
