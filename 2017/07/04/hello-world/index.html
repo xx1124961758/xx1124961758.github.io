@@ -1,8 +1,0 @@
-extends ./_partial/layout.pug
-block content
-    div.index
-        div(class="content-wrap")
-            div(class="article")
-                p(class="article_tt")= page.title
-                div#articleNav !{toc(page.content)}
-                div !{page.content}
