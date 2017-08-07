@@ -2,15 +2,33 @@
   display: block;
   text-align: center;
   padding: 30px 0 40px;
-  height: 200px;
-  border-bottom: 10px solid #1da1f2;
+  height: 160px;
+  background: #848484;
   position: relative;
+  margin-bottom: 130px;
+}
+.sideBar .home .imgBox {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  top: 120px;
+}
+.sideBar .home .imgBox img {
+  width: 86px;
+  height: 86px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 4px solid #fff;
 }
 .sideBar .home .name {
   font-size: 20px;
-  position: absolute;
-  bottom: 40px;
-  left: 74px;
+  padding: 15px 0 10px 0;
+  color: #848484;
+}
+.sideBar .home .work {
+  color: #999;
 }
 .sideBar .cont ul li .item {
   position: relative;
@@ -25,18 +43,14 @@
 .sideBar .cont ul li ul li {
   position: relative;
 }
-.sideBar .cont ul li ul li:hover {
-  background: #000;
-}
 .sideBar .cont ul li ul li a {
   display: inline-block;
-  padding: 6px 25px 6px 80px;
+  padding: 6px 8px 6px 80px;
   color: #4e4e4e;
   font-weight: normal;
   font-size: 16px;
   position: relative;
   line-height: 1;
-  text-decoration: underline;
   transition: color 0.3s;
 }
 .sideBar .cont ul li ul li a:before {
@@ -54,10 +68,11 @@
   transition: color 0.3s;
 }
 .sideBar .cont ul li ul li a:hover {
-  color: #fff;
+  color: #848484;
+  text-decoration: underline;
 }
 .sideBar .cont ul li ul li a:hover:before {
-  background: #fff;
+  background: #848484;
 }
 .article {
   padding: 15px;
@@ -124,8 +139,6 @@
 .article blockquote p code {
   border: 0;
   background-color: #d6dbdf;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
   color: #2c3e50;
   font-size: 90%;
@@ -157,11 +170,11 @@
 .article h1 {
   font-size: 20px;
   padding-left: 10px;
-  border-left: 4px solid #1da1f2;
+  border-left: 4px solid #848484;
   margin: 30px 0 20px 0;
 }
 .article a {
-  color: #1da1f2;
+  color: #848484;
 }
 .article h2 {
   font-size: 18px;
@@ -257,7 +270,7 @@ body li {
   padding: 40px;
 }
 #main .index dl dt {
-  color: #1da1f2;
+  color: #848484;
   font-family: Courier, Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 25px;
   padding: 15px 0;
@@ -276,11 +289,11 @@ body li {
   display: block;
 }
 #main .index dl dd a:hover {
-  color: #1da1f2;
+  color: #848484;
 }
 #main .index dl dd:hover {
   background-color: #f5f8fa;
-  color: #1da1f2;
+  color: #848484;
 }
 #main .index dl dd .time {
   font-size: 14px;
@@ -291,8 +304,6 @@ body li {
 }
 #main input {
   background-color: #f5f8fa;
-  -webkit-border-radius: 21px;
-  -moz-border-radius: 21px;
   border-radius: 21px;
   border: 1px solid #e6ecf0;
   -moz-box-sizing: border-box;
@@ -329,9 +340,13 @@ body li {
   text-align: center;
   color: #999;
 }
-.archive-list-count:before {
+.archive-list-count:before,
+.category-list-count:before,
+.tag-list-count:before {
   content: '(';
 }
-.archive-list-count:after {
+.archive-list-count:after,
+.category-list-count:after,
+.tag-list-count:after {
   content: ')';
 }
