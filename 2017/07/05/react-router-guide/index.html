@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>彭富晓的博客</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"><meta name="keywords"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_8mix81vjx57gy14i.css"><link rel="icon" href="/favicon.png"></head><body><div id="main"><div id="sideBar"><div class="sideBar"><a class="home" href="/"><div class="imgBox"><img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_bigger.png"><p class="name">彭富晓</p><p class="work">前端开发</p></div></a><div class="cont"><ul><li><p class="item">归档</p><div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017-08</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017-07</a><span class="archive-list-count">2</span></li></ul></div></li><li><p class="item">分类</p><div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">1</span></li></ul></div></li><li><p class="item">标签</p><div><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Router/">React Router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">2</span></li></ul></div></li></ul></div></div></div><div id="content"><div class="index"><div class="content-wrap"><div class="article"><p class="article_tt">React Router 入门指南</p><div id="articleNav"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一步：开始"><span class="toc-number">1.</span> <span class="toc-text">第一步：开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#手动设置"><span class="toc-number">1.1.</span> <span class="toc-text">手动设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二步：-路由基础"><span class="toc-number">2.</span> <span class="toc-text">第二步： 路由基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三步-404页面路由"><span class="toc-number">3.</span> <span class="toc-text">第三步 404页面路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四步-IndexRoute-和-Links"><span class="toc-number">4.</span> <span class="toc-text">第四步 IndexRoute 和 Links</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五步-多个-child-IndexRoutes"><span class="toc-number">5.</span> <span class="toc-text">第五步 多个 child / IndexRoutes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第六步-activeStyle-activeClassName-和-indexLink"><span class="toc-number">6.</span> <span class="toc-text">第六步 activeStyle / activeClassName 和 indexLink</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第七步-命名组件"><span class="toc-number">7.</span> <span class="toc-text">第七步 命名组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第八步-路由参数"><span class="toc-number">8.</span> <span class="toc-text">第八步 路由参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第九步-查询参数"><span class="toc-number">9.</span> <span class="toc-text">第九步 查询参数</span></a></li></ol></div><div><blockquote>
+<!DOCTYPE html><html><head><title>彭富晓的博客</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"><meta name="keywords"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_8mix81vjx57gy14i.css"><link rel="icon" href="/favicon.png"></head><body><div id="main"><div class="menuShow" id="sideBar"><div class="sideBar"><div class="hamburglar is-open" id="hamburger"><div class="burger-icon"><div class="burger-container"><span class="burger-bun-top"></span><span class="burger-filling"></span><span class="burger-bun-bot"></span></div><div class="burger-ring"><svg class="svg-ring"><path class="path" fill="none" stroke="#4e4e4e" stroke-miterlimit="10" stroke-width="4" d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2"></path></svg></div><svg width="0" height="0"><mask id="mask"><path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ff0000" stroke-miterlimit="10" stroke-width="4" d="M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4"></path></mask></svg><div class="path-burger"><div class="animate-path"><div class="path-rotation"></div></div></div></div></div><a class="home" href="/"><div class="imgBox"><img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_bigger.png"><p class="name">彭富晓</p><p class="work">前端开发</p></div></a><div class="cont"><ul><li><p class="item">归档</p><div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017-08</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017-07</a><span class="archive-list-count">2</span></li></ul></div></li><li><p class="item">分类</p><div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">1</span></li></ul></div></li><li><p class="item">标签</p><div><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Router/">React Router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">2</span></li></ul></div></li></ul></div></div></div><div class="menuShow" id="content"><div class="index"><div class="content-wrap"><div class="article"><p class="article_tt">React Router 入门指南</p><div id="articleNav"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一步：开始"><span class="toc-number">1.</span> <span class="toc-text">第一步：开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#手动设置"><span class="toc-number">1.1.</span> <span class="toc-text">手动设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二步：-路由基础"><span class="toc-number">2.</span> <span class="toc-text">第二步： 路由基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三步-404页面路由"><span class="toc-number">3.</span> <span class="toc-text">第三步 404页面路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四步-IndexRoute-和-Links"><span class="toc-number">4.</span> <span class="toc-text">第四步 IndexRoute 和 Links</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五步-多个-child-IndexRoutes"><span class="toc-number">5.</span> <span class="toc-text">第五步 多个 child / IndexRoutes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第六步-activeStyle-activeClassName-和-indexLink"><span class="toc-number">6.</span> <span class="toc-text">第六步 activeStyle / activeClassName 和 indexLink</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第七步-命名组件"><span class="toc-number">7.</span> <span class="toc-text">第七步 命名组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第八步-路由参数"><span class="toc-number">8.</span> <span class="toc-text">第八步 路由参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第九步-查询参数"><span class="toc-number">9.</span> <span class="toc-text">第九步 查询参数</span></a></li></ol></div><div><blockquote>
 <p>点击 <a href="https://github.com/dabit3/beginners-guide-to-react-router" target="_blank" rel="external">这里</a>，去 Github 仓库获取源码<br>这篇教程用到： React Router 2.0.1，Babel 6.7.4</p>
 </blockquote>
 <p>React Router 是 React 官方标准的路由库。摘抄一段：</p>
@@ -112,16 +112,13 @@ export default App
 const path = require(&apos;path&apos;)
 const port = process.env.PORT || 8080
 const app = express()
-
 // serve static assets normally
 app.use(express.static(__dirname + &apos;/public&apos;))
-
 // handle every other route with index.html, which will contain
 // a script tag to your application&apos;s JavaScript file(s).
 app.get(&apos;*&apos;, function (request, response){
   response.sendFile(path.resolve(__dirname, &apos;public&apos;, &apos;index.html&apos;))
 })
-
 app.listen(port)
 console.log(&quot;server started on port &quot; + port)
 </code></pre><p>想要学习更多关于 browserHistory 的知识，点击 <a href="https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#browserhistory" target="_blank" rel="external">这里</a></p>
@@ -230,14 +227,13 @@ const TwitterFeed = () =&gt; &lt;h3&gt;Twitter Feed&lt;/h3&gt;
 </blockquote>
 <p>为了使用 <code>&lt;IndexLink&gt;</code>，我们首先从 react-router 中引入进来：</p>
 <pre><code>import { ..., IndexLink } from &apos;react-router&apos;
-</code></pre><p>现在，简单地在导航组件中用 <code>&lt;IndexLink&gt;</code> 替换 <code>&lt;Link&gt;</code> 组件：</p>
-<pre><code>const Nav = () =&gt; (
-  &lt;div&gt;
-    &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/&apos;&gt;Home&lt;/IndexLink&gt;&amp;nbsp;
-    &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/address&apos;&gt;Address&lt;/IndexLink&gt;&amp;nbsp;
-    &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/about&apos;&gt;About&lt;/IndexLink&gt;
-  &lt;/div&gt;
-)
+const Nav = () =&gt; (
+      &lt;div&gt;
+        &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/&apos;&gt;Home&lt;/IndexLink&gt;&amp;nbsp;
+        &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/address&apos;&gt;Address&lt;/IndexLink&gt;&amp;nbsp;
+        &lt;IndexLink activeStyle={{color:'#53acff'}} to=&apos;/about&apos;&gt;About&lt;/IndexLink&gt;
+      &lt;/div&gt;
+    )
 </code></pre><p>现在，添加 class 或者 样式怎么样？为了实现这个功能，我们可以用 activeClassName。让我们在 index.html 设置一个激活状态的样式。</p>
 <pre><code>&lt;style&gt;
   .active {
@@ -319,4 +315,19 @@ const SubTitle = () =&gt; (
 <blockquote>
 <p>我的名字： <a href="https://twitter.com/dabit3" target="_blank" rel="external">Nader Dabit</a><br>我目前所在的公司是：<a href="https://www.schoolstatus.com/" target="_blank" rel="external">School Status</a>，是一个通过给帮助教育工作者提供数据帮助他们制定更好的决策。<br>如果你喜欢 React 和 React Native，订阅我们在 <a href="https://devchat.tv/" target="_blank" rel="external">Devchat.tv</a> 的 <a href="https://devchat.tv/react-native-radio" target="_blank" rel="external">React Native</a>； </p>
 </blockquote>
-</div></div></div></div></div></div></body></html>
+</div></div></div></div></div></div><script>var sideBar = document.getElementById('sideBar');
+var content = document.getElementById('content');
+var button = document.getElementById('hamburger');
+button.addEventListener('click', function () {
+    console.log(this.className.split(' '))
+    var classArr = this.className.split(' ');
+    if(classArr.indexOf('is-open') !== -1){
+        this.className = 'hamburglar is-closed';
+        sideBar.className = '';
+        content.className = '';
+    } else {
+        this.className = 'hamburglar is-open';
+        sideBar.className = 'menuShow';
+        content.className = 'menuShow';
+    }
+})</script></body></html>
