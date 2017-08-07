@@ -24,7 +24,7 @@
 .sideBar .home .name {
   font-size: 20px;
   padding: 15px 0 10px 0;
-  color: rgba(0,0,0,0.8);
+  color: #848484;
 }
 .sideBar .home .work {
   color: #999;
@@ -34,14 +34,14 @@
   overflow-y: auto;
   position: absolute;
   top: 290px;
-  bottom: 0;
+  bottom: 88px;
   width: 100%;
 }
 .sideBar .cont ul li .item {
   position: relative;
   display: block;
   padding: 15px 25px 15px 40px;
-  color: rgba(0,0,0,0.8);
+  color: #111;
   font-size: 20px;
 }
 .sideBar .cont ul li ul {
@@ -96,7 +96,7 @@
 }
 h4 {
   font-family: arial, helvetica, serif;
-  color: #4e4e4e;
+  color: #000;
   font-size: 18px;
   text-align: center;
   margin: 40px 0 0;
@@ -116,7 +116,8 @@ h4 {
   user-select: none;
   z-index: 12;
   cursor: pointer;
-  left: 0;
+  left: 116px;
+  bottom: 10px;
 }
 .path-burger {
   position: absolute;
@@ -151,13 +152,15 @@ h4 {
   width: 30px;
   height: 34px;
   margin: 0 4px 0 0;
-  background: #4e4e4e;
+  background: #000;
 }
-.hamburglar.is-open .path {
+.hamburglar.is-open,
+.path {
   animation: dash-in 0.6s linear normal;
   animation-fill-mode: forwards;
 }
-.hamburglar.is-open .animate-path {
+.hamburglar.is-open .animate-path,
+.path .animate-path {
   animation: rotate-in 0.6s linear normal;
   animation-fill-mode: forwards;
 }
@@ -193,7 +196,7 @@ h4 {
   height: 4px;
   width: 36px;
   border-radius: 2px;
-  background: #4e4e4e;
+  background: #000;
 }
 .burger-bun-top {
   top: 0;
