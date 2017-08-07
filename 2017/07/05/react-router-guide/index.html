@@ -318,7 +318,9 @@ const SubTitle = () =&gt; (
 </div></div></div></div></div></div><script>var sideBar = document.getElementById('sideBar');
 var content = document.getElementById('content');
 var button = document.getElementById('hamburger');
-button.className = 'is-open hamburglar';
+setTimeout(function(){
+    button.className = 'is-open hamburglar';
+}, 1000);
 button.addEventListener('click', function () {
     console.log(this.className.split(' '))
     var classArr = this.className.split(' ');
