@@ -300,11 +300,9 @@ body li {
   min-width: 320px;
 }
 .index .content-wrap {
-  overflow: hidden;
   padding-right: 280px;
   position: relative;
   padding-top: 20px;
-  border-top: 1px solid #dcdcdc;
 }
 .index .categories {
   width: 260px;
@@ -318,7 +316,7 @@ body li {
 }
 .index .categories h2 {
   font-size: 16px;
-  padding: 16px 10px 10px 0;
+  padding: 10px 10px 10px 0;
   border-bottom: 1px dashed #dcdcdc;
 }
 .index .categories .category-list {
@@ -337,17 +335,17 @@ body li {
   line-height: 1.4;
 }
 .index dl {
-  padding: 0 40px 0 0;
+  padding: 10px;
   position: relative;
 }
 .index dl dt {
-  color: #848484;
-  font-family: Courier, Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 25px;
-  padding: 30px 0 5px 0;
+  color: #333;
+  font-size: 16px;
+  padding: 30px 0 10px 0;
+  font-weight: 700;
 }
 .index dl dt:first-child {
-  padding-top: 0;
+  padding-top: 10px;
 }
 .index dl dt span {
   font-size: 14px;
