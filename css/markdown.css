@@ -1,10 +1,8 @@
 .article {
   padding: 15px;
-  background: #fff;
   color: #424242;
   --x-height-multiplier: 0.35;
   --baseline-multiplier: 0.179;
-  font-weight: 400;
   font-style: normal;
   font-size: 16px;
   line-height: 1.58;
@@ -15,16 +13,12 @@
 }
 .article .article_tt {
   color: #4e4e4e;
-  margin: 60px 0 40px 0;
-  text-align: center;
-  --x-height-multiplier: 0.363;
-  --baseline-multiplier: 0.157;
-  font-weight: 700;
+  padding: 60px 0 40px 0;
+  text-align: left;
   font-style: normal;
-  font-size: 40px;
-  margin-left: -2.5px;
-  line-height: 1.04;
+  font-size: 30px;
   letter-spacing: -0.028em;
+  border-bottom: 1px solid #d3d3d3;
 }
 .article figure {
   margin-bottom: 10px;
@@ -84,9 +78,6 @@
 .article p {
   margin: 10px 0 29px 0;
 }
-.article .article_tt {
-  text-align: center;
-}
 .article img {
   margin: 30px auto;
   display: block;
@@ -104,18 +95,20 @@
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 .article h1 {
-  font-size: 32px;
+  font-size: 28px;
   margin: 56px 0 20px 0;
   color: #4e4e4e;
+  font-weight: 500;
 }
 .article a {
   color: rgba(0,0,0,0.8);
   text-decoration: underline;
 }
 .article h2 {
-  font-size: 26px;
+  font-size: 24px;
   margin: 25px 0 15px 0;
   color: #4e4e4e;
+  font-weight: 500;
 }
 .article ul {
   padding-left: 40px;
