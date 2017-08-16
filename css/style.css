@@ -304,6 +304,7 @@ body li {
   position: relative;
   padding-top: 20px;
 }
+.index .serials,
 .index .categories {
   width: 260px;
   -webkit-border-radius: 6px;
@@ -311,22 +312,27 @@ body li {
   border-radius: 6px;
   background: #deebf7;
   padding: 10px;
+}
+.index .widgets {
   position: absolute;
   right: 0;
 }
-.index .categories h2 {
+.index .widgets>div {
+  margin-bottom: 20px;
+}
+.index .widgets h2 {
   font-size: 16px;
   padding: 10px 10px 10px 0;
   border-bottom: 1px dashed #dcdcdc;
 }
-.index .categories .category-list {
+.index .widgets .category-list {
   margin-left: 20px;
 }
-.index .categories .category-list .category-list-item {
+.index .widgets .category-list .category-list-item {
   margin-top: 10px;
   list-style: square;
 }
-.index .categories .category-list .category-list-item a {
+.index .widgets .category-list .category-list-item a {
   font-size: 16px;
   color: #333;
   text-decoration: underline;
